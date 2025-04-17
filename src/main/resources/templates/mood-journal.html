@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Щоденник настрою</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f9f9;
+      padding: 40px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    select, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 30px;
+      background-color: #e0f7e9;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Щоденник настрою</h1>
+
+  <form action="/mood" method="post">
+    <label for="mood">Обери свій настрій:</label>
+    <select id="mood" name="mood" required>
+      <option value="">-- обери --</option>
+      <option value="😊 Радість">😊 Радість</option>
+      <option value="😐 Спокій">😐 Спокій</option>
+      <option value="😢 Смуток">😢 Смуток</option>
+      <option value="😠 Злість">😠 Злість</option>
+      <option value="😰 Тривога">😰 Тривога</option>
+    </select>
+
+    <label for="note">Короткий опис (необов’язково):</label>
+    <textarea id="note" name="note" rows="4" placeholder="Що ти зараз відчуваєш?"></textarea>
+
+    <button type="submit">Зберегти</button>
+  </form>
+
+  <div class="result" th:if="${mood != null}">
+    <h3>Останній запис:</h3>
+    <p><strong>Настрій:</strong> <span th:text="${mood}"></span></p>
+    <p><strong>Коментар:</strong> <span th:text="${note}"></span></p>
+  </div>
+</div>
+
+</body>
+</html>

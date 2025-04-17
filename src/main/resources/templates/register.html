@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Реєстрація</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f9f9;
+      padding: 40px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="password"], input[type="email"], input[type="date"], button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Реєстрація</h1>
+  <form th:action="@{/register}" method="post">
+    <input type="text" name="username" placeholder="Ім’я користувача" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="date" name="dateOfBirth" placeholder="Дата народження" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+    <input type="password" name="confirmPassword" placeholder="Підтвердіть пароль" required>
+
+    <button type="submit">Зареєструватися</button>
+  </form>
+
+  <div class="link">
+    Вже маєш акаунт? <a th:href="@{/login}">Увійти</a>
+  </div>
+</div>
+
+</body>
+</html>

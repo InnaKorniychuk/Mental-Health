@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Психологічний тест — Питання 1</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef7f8;
+      padding: 40px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 15px;
+      padding: 15px;
+      background-color: #f0f9f9;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>1. Що вас привело сюди?</h2>
+  <form th:action="@{/pre-register/question2}" method="post">
+    <label><input type="radio" name="reason" value="Хочу покращити самопочуття" required> Хочу покращити самопочуття</label>
+    <label><input type="radio" name="reason" value="Шукаю підтримку"> Шукаю підтримку</label>
+    <label><input type="radio" name="reason" value="Просто цікаво"> Просто цікаво</label>
+    <label><input type="radio" name="reason" value="Інше"> Інше</label>
+    <button type="submit">Далі</button>
+  </form>
+</div>
+
+</body>
+</html>

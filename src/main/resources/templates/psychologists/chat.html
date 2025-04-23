@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Чат з психологом</title>
+  <style>
+    .chat-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 300px;
+      overflow-y: scroll;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+    }
+    .msg-user {
+      text-align: right;
+      color: blue;
+    }
+    .msg-psych {
+      text-align: left;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+<h2>Чат з <span th:text="${physician.fullName}"></span></h2>
+
+<div class="chat-box">
+  <div th:each="msg : ${chatMessages}">
+    <p th:class="${msg.sender == 'Ви'} ? 'msg-user' : 'msg-psych'">
+      <strong th:text="${msg.sender} + ':'"></strong>
+      <span th:text="${msg.content}"></span>
+    </p>
+  </div>
+</div>
+
+<form th:action="@{'/chat/' + ${physician.id}}" method="post">
+  <input type="text" name="message" placeholder="Ваше повідомлення..." style="width: 70%;" required>
+  <button type="submit">Надіслати</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Психологічні теми</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f3faff, #e6f2ff);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #00695c;
+      padding: 30px 0;
+      color: white;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: left;
+      flex-grow: 1;
+    }
+
+    .card-content h2 {
+      font-size: 20px;
+      color: #00695c;
+      margin: 0 0 10px 0;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .read-more {
+      margin-top: auto;
+      padding: 15px;
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .read-more:hover {
+      background-color: #00332b;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Психологічні теми</h1>
+</header>
+
+<div class="container">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=800&q=60" alt="stress">
+    <div class="card-content">
+      <h2>Як подолати стрес</h2>
+      <p>Дізнайтеся ефективні методи боротьби зі стресом, які можна застосовувати щодня.</p>
+    </div>
+    <a class="read-more" href="#">Читати далі</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754?auto=format&fit=crop&w=800&q=60" alt="self-love">
+    <div class="card-content">
+      <h2>Самооцінка та самоприйняття</h2>
+      <p>Чому важливо любити себе і як побудувати позитивне ставлення до себе.</p>
+    </div>
+    <a class="read-more" href="#">Читати далі</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1506812574058-fc75fa93fead?auto=format&fit=crop&w=800&q=60" alt="anxiety">
+    <div class="card-content">
+      <h2>Тривожність: як з нею впоратись?</h2>
+      <p>Поради та вправи для зниження тривожності та повернення до стану спокою.</p>
+    </div>
+    <a class="read-more" href="#">Читати далі</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=60" alt="mindfulness">
+    <div class="card-content">
+      <h2>Свідомість та усвідомленість</h2>
+      <p>Що таке mindfulness і як ця практика допомагає в емоційному житті.</p>
+    </div>
+    <a class="read-more" href="#">Читати далі</a>
+  </div>
+</div>
+
+</body>
+</html>

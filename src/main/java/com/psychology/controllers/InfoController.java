@@ -13,4 +13,12 @@ public class InfoController {
     public String panic(){
         return "panic-attack";
     }
+    @GetMapping("/topics")
+    public String topics(){
+        return "topics";
+    }
+    @GetMapping("/tests")
+    public String tests(){
+        return "tests";
+    }
 }

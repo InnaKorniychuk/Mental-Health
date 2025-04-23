@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Наші психологи</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .card-info {
+      text-align: left;
+    }
+
+    .card-info h2 {
+      margin: 0;
+    }
+
+    .rating {
+      color: #ffaa00;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Наші психологи</h1>
+
+<div th:each="p : ${physicians}" class="card">
+  <img th:src="${p.profileImageUrl}" alt="Фото психолога">
+  <div class="card-info">
+    <h2 th:text="${p.fullName}">Ім’я</h2>
+    <p><strong>Спеціалізація:</strong> <span th:text="${p.specialization}">---</span></p>
+    <p><strong>Освіта:</strong> <span th:text="${p.education}">---</span></p>
+    <p><strong>Мови:</strong> <span th:text="${p.languagesSpoken}">---</span></p>
+    <p><strong>Рейтинг:</strong> <span class="rating" th:text="${p.rating}">0</span></p>
+
+    <a th:href="@{'/chat/' + ${p.id}}">
+      <button style="margin-top: 10px;">Написати</button>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
+

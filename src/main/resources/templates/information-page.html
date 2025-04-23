@@ -3,19 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Психоемоційна допомога</title>
-</head>
-<body style="font-family: Arial, sans-serif; text-align: center; padding: 40px;">
-<h1>Як справлятися зі стресом?</h1>
-<p>Натисни кнопку, щоб дізнатися більше про заспокійливі техніки.</p>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f0f9ff);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
 
-<button onclick="location.href='/panic'"
-        style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    Детальніше
-</button>
-<button onclick="location.href='/mood'"
-        style="margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #2196F3; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    Щоденник настрою
-</button>
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #00695c;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        button {
+            width: 80%;
+            max-width: 320px;
+            padding: 14px 20px;
+            font-size: 18px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #004d40;
+            transform: scale(1.03);
+        }
+
+        .topic-btn {
+            background-color: #3949ab;
+        }
+
+        .topic-btn:hover {
+            background-color: #1a237e;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Як справлятися зі стресом?</h1>
+    <p>Натисни кнопку, щоб дізнатися більше про заспокійливі техніки.</p>
+
+    <div class="btn-group">
+        <button onclick="location.href='/panic'">Детальніше</button>
+        <button onclick="location.href='/mood'">Щоденник настрою</button>
+        <button onclick="location.href='/physicians'">Наші психологи</button>
+        <button class="topic-btn" onclick="location.href='/topics'">Психологічні теми</button>
+        <button class="topic-btn" onclick="location.href='/tests'">Психологічні тести</button>
+    </div>
+</div>
 
 </body>
 </html>

@@ -48,6 +48,20 @@ public class ChatController {
     }
 
     private String getAutoResponse(String message) {
-        return "Цікава думка! Розкажіть більше.";
+        message = message.toLowerCase();
+
+        if (message.contains("стрес")) {
+            return "Здається, ви переживаєте складний період. Хочете поговорити про це детальніше?";
+        } else if (message.contains("тривога") || message.contains("паніка")) {
+            return "Тривога — це природна реакція. Чи знаєте ви, що її можна контролювати за допомогою дихальних практик?";
+        } else if (message.contains("депресія")) {
+            return "Важливо памʼятати, що ви не самі. Я тут, щоб вас підтримати.";
+        } else if (message.contains("втома") || message.contains("вигорання")) {
+            return "Ви, ймовірно, перевантажені. Коли ви востаннє відпочивали?";
+        } else if (message.contains("самотність")) {
+            return "Самотність може бути важкою. Хочете розповісти більше про свої почуття?";
+        } else {
+            return "Я вас чую. Розкажіть трохи більше, щоб отримати якісну консультацію.";
+        }
     }
 }

@@ -6,45 +6,91 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #eef7f8;
-      padding: 40px;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e0f7fa, #e8eaf6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
+
     .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
+      background: #fff;
+      max-width: 650px;
+      width: 90%;
       padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease-in-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .progress-bar {
+      height: 16px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: #007bff;
+      width: 100%;
+      transition: width 0.4s ease;
+    }
+
     h2 {
       margin-bottom: 20px;
+      color: #333;
+      text-align: center;
     }
+
     form {
       display: flex;
       flex-direction: column;
     }
+
     label {
+      display: flex;
+      align-items: center;
+      background-color: #f1f9fb;
+      padding: 14px 18px;
       margin-bottom: 15px;
-      padding: 15px;
-      background-color: #f0f9f9;
+      border-radius: 10px;
       border: 1px solid #ccc;
-      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.2s ease;
     }
+
+    label:hover {
+      background-color: #e2f3f7;
+    }
+
     input[type="radio"] {
-      margin-right: 10px;
+      margin-right: 12px;
+      transform: scale(1.2);
+      accent-color: #007bff;
     }
+
     button {
       margin-top: 20px;
-      padding: 12px;
+      padding: 14px;
       background-color: #007bff;
-      color: white;
+      color: #fff;
       font-size: 16px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #0056b3;
     }
@@ -53,6 +99,9 @@
 <body>
 
 <div class="container">
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 100%;"></div>
+  </div>
   <h2>3. Чи займалися ви раніше із психологом?</h2>
   <form th:action="@{/pre-register/summary}" method="post">
     <label><input type="radio" name="trust" value="Так" required> Так</label>

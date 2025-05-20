@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест на самооцінку Розенберга</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #bbdefb, #e1f5fe); /* Голубенький градієнт */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e88e5; /* Синій заголовок */
+            margin-bottom: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #90caf9; /* Світло-синя обводка */
+            border-radius: 15px;
+            background-color: #e3f2fd; /* Світло-голубенький фон */
+            transition: box-shadow 0.3s;
+        }
+
+        .question:hover {
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.15); /* Синя тінь при наведенні */
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background-color: #1976d2; /* Синя кнопка */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1565c0; /* Темно-синя кнопка при наведенні */
+        }
+
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #e0f7fa; /* Світло-голубенький фон результату */
+            border: 1px solid #81d4fa; /* Голубенька обводка результату */
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Тест на самооцінку Розенберга</h1>
+    <div class="question">
+        <p>1. Загалом, я задоволений собою.</p>
+        <label><input type="radio" name="se1" value="3"> Повністю згоден</label><br>
+        <label><input type="radio" name="se1" value="2"> Згоден</label><br>
+        <label><input type="radio" name="se1" value="1"> Не згоден</label><br>
+        <label><input type="radio" name="se1" value="0"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>2. Часом я думаю, що нічого не вартий.</p>
+        <label><input type="radio" name="se2" value="0"> Повністю згоден</label><br>
+        <label><input type="radio" name="se2" value="1"> Згоден</label><br>
+        <label><input type="radio" name="se2" value="2"> Не згоден</label><br>
+        <label><input type="radio" name="se2" value="3"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>3. Я відчуваю, що маю багато хороших якостей.</p>
+        <label><input type="radio" name="se3" value="3"> Повністю згоден</label><br>
+        <label><input type="radio" name="se3" value="2"> Згоден</label><br>
+        <label><input type="radio" name="se3" value="1"> Не згоден</label><br>
+        <label><input type="radio" name="se3" value="0"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>4. Я здатен робити речі так само добре, як і більшість інших людей.</p>
+        <label><input type="radio" name="se4" value="3"> Повністю згоден</label><br>
+        <label><input type="radio" name="se4" value="2"> Згоден</label><br>
+        <label><input type="radio" name="se4" value="1"> Не згоден</label><br>
+        <label><input type="radio" name="se4" value="0"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>5. Я відчуваю, що мені мало чим можна пишатися.</p>
+        <label><input type="radio" name="se5" value="0"> Повністю згоден</label><br>
+        <label><input type="radio" name="se5" value="1"> Згоден</label><br>
+        <label><input type="radio" name="se5" value="2"> Не згоден</label><br>
+        <label><input type="radio" name="se5" value="3"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>6. Я позитивно ставлюся до себе.</p>
+        <label><input type="radio" name="se6" value="3"> Повністю згоден</label><br>
+        <label><input type="radio" name="se6" value="2"> Згоден</label><br>
+        <label><input type="radio" name="se6" value="1"> Не згоден</label><br>
+        <label><input type="radio" name="se6" value="0"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>7. Загалом, я схильний вважати себе невдахою.</p>
+        <label><input type="radio" name="se7" value="0"> Повністю згоден</label><br>
+        <label><input type="radio" name="se7" value="1"> Згоден</label><br>
+        <label><input type="radio" name="se7" value="2"> Не згоден</label><br>
+        <label><input type="radio" name="se7" value="3"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>8. Хотів би, щоб я більше поважав себе.</p>
+        <label><input type="radio" name="se8" value="0"> Повністю згоден</label><br>
+        <label><input type="radio" name="se8" value="1"> Згоден</label><br>
+        <label><input type="radio" name="se8" value="2"> Не згоден</label><br>
+        <label><input type="radio" name="se8" value="3"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>9. Я точно відчуваю себе некорисною людиною.</p>
+        <label><input type="radio" name="se9" value="0"> Повністю згоден</label><br>
+        <label><input type="radio" name="se9" value="1"> Згоден</label><br>
+        <label><input type="radio" name="se9" value="2"> Не згоден</label><br>
+        <label><input type="radio" name="se9" value="3"> Повністю не згоден</label>
+    </div>
+
+    <div class="question">
+        <p>10. Іноді я думаю, що я нікчемний.</p>
+        <label><input type="radio" name="se10" value="0"> Повністю згоден</label><br>
+        <label><input type="radio" name="se10" value="1"> Згоден</label><br>
+        <label><input type="radio" name="se10" value="2"> Не згоден</label><br>
+        <label><input type="radio" name="se10" value="3"> Повністю не згоден</label>
+    </div>
+
+    <button onclick="calculateSelfEsteem()">Порахувати результат</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculateSelfEsteem() {
+        let score = 0;
+        for (let i = 1; i <= 10; i++) {
+            const selectedOption = document.querySelector(`input[name="se${i}"]:checked`);
+            if (selectedOption) {
+                score += parseInt(selectedOption.value);
+            } else {
+                alert("Будь ласка, дайте відповідь на всі питання.");
+                return;
+            }
+        }
+
+        // Зворотні питання (2, 5, 7, 8, 9, 10) потребують оберненої оцінки
+        const reverseQuestions = [2, 5, 7, 8, 9, 10];
+        let adjustedScore = 0;
+        for (let i = 1; i <= 10; i++) {
+            const selectedOption = document.querySelector(`input[name="se${i}"]:checked`);
+            if (selectedOption) {
+                let value = parseInt(selectedOption.value);
+                if (reverseQuestions.includes(i)) {
+                    adjustedScore += (3 - value);
+                } else {
+                    adjustedScore += value;
+                }
+            }
+        }
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block";
+
+        let interpretation = "";
+        if (adjustedScore >= 30) {
+            interpretation = "Висока самооцінка";
+        } else if (adjustedScore >= 25 && adjustedScore <= 29) {
+            interpretation = "Здорова самооцінка";
+        } else if (adjustedScore >= 20 && adjustedScore <= 24) {
+            interpretation = "Помірна самооцінка";
+        } else {
+            interpretation = "Низька самооцінка";
+        }
+
+        resultDiv.textContent = `Ваш бал самооцінки: ${adjustedScore}. Інтерпретація: ${interpretation}.`;
+    }
+</script>
+</body>
+</html>

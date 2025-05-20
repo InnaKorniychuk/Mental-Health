@@ -1,9 +1,9 @@
 package com.psychology.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Physician {
@@ -17,7 +17,63 @@ public class Physician {
     private String education;
     private String languagesSpoken;
     private Double rating;
+    private int price;
+    private String email;
+    private String  password;
+
     private String profileImageUrl;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
+
+    @OneToMany(mappedBy = "physician", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Session> sessions = new ArrayList<>();
+
+//    @OneToMany
+//    @JoinColumn(name = "session_id", nullable = false)
+//    private List<Session> sessions;
+
+    public Physician() {
+    }
+
+    public Physician(String fullName, String specialization, Role role) {
+        this.fullName = fullName;
+        this.specialization = specialization;
+        this.role = role;
+    }
+
+//    public List<Session> getSessions() {
+//        return sessions;
+//    }
+//
+//    public void setSessions(List<Session> sessions) {
+//        this.sessions = sessions;
+//    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Long getId() {
         return id;
@@ -73,5 +129,21 @@ public class Physician {
 
     public void setProfileImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
     }
 }

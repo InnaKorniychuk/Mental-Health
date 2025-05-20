@@ -2,85 +2,211 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Психоемоційна допомога</title>
+    <title>MindBloom — Психоемоційна підтримка</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #e0f7fa, #f0f9ff);
+            background: linear-gradient(to right, #f3e5f5, #e1f5fe);
             margin: 0;
             padding: 0;
-            text-align: center;
+            color: #333;
         }
 
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 50px 20px;
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #5e35b1;
+            padding: 14px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            font-size: 36px;
-            color: #00695c;
-            animation: fadeIn 1.5s ease-in-out;
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 17px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        p {
-            font-size: 18px;
-            color: #444;
-            margin-bottom: 30px;
+        nav a:hover {
+            background-color: #7e57c2;
+            color: #ffffff;
         }
 
-        .btn-group {
+        .hero {
             display: flex;
             flex-direction: column;
-            gap: 15px;
             align-items: center;
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: white;
+            animation: fadeIn 1.2s ease;
         }
 
-        button {
-            width: 80%;
-            max-width: 320px;
-            padding: 14px 20px;
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 720px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            background: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            color: #5e35b1;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            max-width: 700px;
+            margin: auto;
             font-size: 18px;
-            background-color: #00796b;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .cta-btn {
+            margin-top: 40px;
+            padding: 14px 28px;
+            font-size: 18px;
+            background-color: #7e57c2;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        button:hover {
-            background-color: #004d40;
-            transform: scale(1.03);
+        .cta-btn:hover {
+            background-color: #512da8;
+            transform: scale(1.05);
         }
 
-        .topic-btn {
-            background-color: #3949ab;
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .topic-btn:hover {
-            background-color: #1a237e;
+        .feature-box {
+            width: 260px;
+            background-color: #f8f9fa;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(-20px);}
-            to {opacity: 1; transform: translateY(0);}
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-box img {
+            width: 60px;
+            margin-bottom: 16px;
+        }
+
+        .feature-box h3 {
+            color: #5e35b1;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .reviews {
+            background: #f3e5f5;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .reviews h2 {
+            font-size: 30px;
+            color: #5e35b1;
+            margin-bottom: 20px;
+        }
+
+        .review-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .review-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+        }
+
+        .review-card p {
+            font-size: 18px;
+            color: #555;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Як справлятися зі стресом?</h1>
-    <p>Натисни кнопку, щоб дізнатися більше про заспокійливі техніки.</p>
+<nav>
+    <a href="/panic">Підтримка</a>
+    <a href="/mood">Настрій</a>
+    <a href="/physicians">Психологи</a>
+    <a href="/topics">Статті</a>
+    <a href="/tests">Тести</a>
+    <a href="/cabinet">Особистий кабінет</a>
+</nav>
 
-    <div class="btn-group">
-        <button onclick="location.href='/panic'">Детальніше</button>
-        <button onclick="location.href='/mood'">Щоденник настрою</button>
-        <button onclick="location.href='/physicians'">Наші психологи</button>
-        <button class="topic-btn" onclick="location.href='/topics'">Психологічні теми</button>
-        <button class="topic-btn" onclick="location.href='/tests'">Психологічні тести</button>
+<div class="hero">
+    <h1>MindBloom</h1>
+    <p>Платформа турботи про психоемоційне здоров’я. Відчуй спокій, підтримку та нову енергію — у своєму ритмі.</p>
+</div>
+
+<div class="section">
+    <h2>Що таке MindBloom?</h2>
+    <p>Ми поєднуємо сучасну психологію, інноваційні інструменти та щиру турботу. Наша місія — допомогти тобі краще зрозуміти себе, подбати про своє ментальне здоров’я та повернути внутрішній баланс.</p>
+</div>
+
+<div class="reviews">
+    <h2>Відгуки користувачів</h2>
+    <div class="review-list">
+        <div class="review-card">
+            <p>"Дуже зручна платформа. Допомогла впоратися зі стресом і віднайти внутрішній спокій." — Олена</p>
+        </div>
+        <div class="review-card">
+            <p>"Тести допомогли краще зрозуміти свій емоційний стан. Дуже корисно!" — Андрій</p>
+        </div>
+        <div class="review-card">
+            <p>"Рекомендую MindBloom усім, хто хоче дбати про своє психічне здоров'я." — Марія</p>
+        </div>
     </div>
 </div>
 

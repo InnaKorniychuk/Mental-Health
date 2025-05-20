@@ -6,39 +6,120 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      padding: 40px;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      padding: 40px 20px;
+      margin: 0;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #34495e;
+      margin-bottom: 50px;
+      font-size: 38px;
+      font-weight: bold;
     }
 
     .card {
-      background-color: white;
-      padding: 20px;
+      background-color: #ffffff;
+      padding: 30px;
       margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 600px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 1000px;
       display: flex;
-      gap: 20px;
-      align-items: center;
+      align-items: flex-start;
+      gap: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
 
     .card img {
-      width: 100px;
-      height: 100px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
+      border: 4px solid #90caf9;
+      flex-shrink: 0;
     }
 
     .card-info {
-      text-align: left;
+      flex: 1;
+      min-width: 260px;
     }
 
     .card-info h2 {
-      margin: 0;
+      margin-top: 0;
+      color: #2c3e50;
+      font-size: 28px;
+    }
+
+    .card-info p {
+      margin: 10px 0;
+      color: #555;
+      font-size: 16px;
     }
 
     .rating {
-      color: #ffaa00;
+      color: #ff9800;
+      font-weight: bold;
+    }
+
+    .booking-form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .booking-form label {
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #34495e;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      font-size: 16px;
+    }
+
+    .booking-form button,
+    .btn-chat {
+      width: 90%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-bottom: 12px;
+    }
+
+    .booking-form button:hover,
+    .btn-chat:hover {
+      background-color: #2980b9;
+      transform: scale(1.03);
+    }
+
+    .btn-chat {
+      margin-top: 0;
+    }
+
+    @media (max-width: 700px) {
+      .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -54,13 +135,21 @@
     <p><strong>Освіта:</strong> <span th:text="${p.education}">---</span></p>
     <p><strong>Мови:</strong> <span th:text="${p.languagesSpoken}">---</span></p>
     <p><strong>Рейтинг:</strong> <span class="rating" th:text="${p.rating}">0</span></p>
-
-    <a th:href="@{'/chat/' + ${p.id}}">
-      <button style="margin-top: 10px;">Написати</button>
-    </a>
+    <p><strong>Ціна за заняття (60хв):</strong> <span class="rating" th:if="${p.price > 0}" th:text="${p.price}">0</span><span class="rating" th:unless="${p.price > 0}">Безкоштовно</span></p>
+    <form th:action="@{/save-time}" method="post" class="booking-form">
+      <input type="hidden" name="physicianId" th:value="${p.id}" />
+      <label for="date">Оберіть дату консультації:</label>
+      <input type="date" id="date" name="date" min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required>
+      <label for="time">Оберіть час консультації:</label>
+      <select id="time" name="time" required>
+        <option value="" disabled selected>-- Виберіть час --</option>
+        <option th:each="i : ${#numbers.sequence(0, 19)}" th:value="${T(java.time.LocalTime).of(8,0).plusMinutes(i*30).toString()}" th:text="${T(java.time.LocalTime).of(8,0).plusMinutes(i*30).toString()}"></option>
+      </select>
+      <button type="submit">Забронювати та оплатити</button>
+    </form>
+    <a th:href="@{'/chat/' + ${p.id}}"><button class="btn-chat">Написати</button></a>
   </div>
 </div>
 
 </body>
 </html>
-

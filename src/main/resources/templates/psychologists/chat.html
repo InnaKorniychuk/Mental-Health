@@ -4,39 +4,113 @@
   <meta charset="UTF-8">
   <title>Чат з психологом</title>
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 20px;
+      font-size: 20px;
+    }
+
     .chat-box {
-      border: 1px solid #ccc;
-      padding: 10px;
-      height: 300px;
-      overflow-y: scroll;
-      margin-bottom: 10px;
+      padding: 20px;
+      height: 400px;
+      overflow-y: auto;
       background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
+
+    .msg {
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
     .msg-user {
-      text-align: right;
-      color: blue;
+      align-self: flex-end;
+      background-color: #dcf8c6;
+      color: #333;
     }
+
     .msg-psych {
-      text-align: left;
-      color: green;
+      align-self: flex-start;
+      background-color: #e4e6eb;
+      color: #333;
     }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+      padding: 15px;
+      background-color: #fafafa;
+    }
+
+    .chat-input input[type="text"] {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .chat-input button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .chat-input button:hover {
+      background-color: #357abd;
+    }
+
   </style>
 </head>
 <body>
-<h2>Чат з <span th:text="${physician.fullName}"></span></h2>
-
-<div class="chat-box">
-  <div th:each="msg : ${chatMessages}">
-    <p th:class="${msg.sender == 'Ви'} ? 'msg-user' : 'msg-psych'">
-      <strong th:text="${msg.sender} + ':'"></strong>
-      <span th:text="${msg.content}"></span>
-    </p>
+<div class="container">
+  <div class="chat-header">
+    Чат з <span th:text="${physician.fullName}">Психологом</span>
   </div>
-</div>
 
-<form th:action="@{'/chat/' + ${physician.id}}" method="post">
-  <input type="text" name="message" placeholder="Ваше повідомлення..." style="width: 70%;" required>
-  <button type="submit">Надіслати</button>
-</form>
+  <div class="chat-box">
+    <div th:each="msg : ${chatMessages}">
+      <div th:class="'msg ' + (${msg.sender} == 'Ви' ? 'msg-user' : 'msg-psych')">
+        <strong th:text="${msg.sender + ':'}"></strong> <br>
+        <span th:text="${msg.content}"></span>
+      </div>
+    </div>
+  </div>
+
+  <form th:action="@{'/chat/' + ${physician.id}}" method="post" class="chat-input">
+    <input type="text" name="message" placeholder="Напишіть повідомлення..." required />
+    <button type="submit">Надіслати</button>
+  </form>
+</div>
 </body>
 </html>

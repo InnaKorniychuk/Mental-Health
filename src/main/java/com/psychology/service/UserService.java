@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -32,5 +33,10 @@ public class UserService {
 
         userRepository.save(user);
         return true;
+    }
+
+    public User findByEmail(String email) {
+        User user=userRepository.findByEmail(email);
+        return user;
     }
 }

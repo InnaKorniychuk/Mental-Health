@@ -24,6 +24,7 @@ public class PreRegisterController {
     public String start() {
         return "pre-register/question1";
     }
+
     @GetMapping("/help")
     public String help() {
         return "redirect:/chat/2";

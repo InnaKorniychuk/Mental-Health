@@ -23,6 +23,7 @@ public class Session {
     private LocalDate date;
 
     private LocalTime time;
+
     @Enumerated(EnumType.STRING)
     private SessionStatus status = SessionStatus.PENDING;
 

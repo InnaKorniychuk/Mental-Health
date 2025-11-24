@@ -33,12 +33,6 @@ public class SessionServiceImpl implements SessionService {
         sessionRepository.save(session);
     }
 
-//    public void cancelSession(Long sessionId) {
-//        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Сесія не знайдена"));
-//        session.setStatus(SessionStatus.CANCELLED);
-//        sessionRepository.save(session);
-//    }
-
     @Override
     public List<Session> getUpcomingSessionsForUser(Long userId) {
         return sessionRepository.findByUserId(userId).stream()
@@ -48,10 +42,8 @@ public class SessionServiceImpl implements SessionService {
     }
     @Override
     public List<Session> getSessionsForPhysician(String email) {
-        // Знайти психолога за email
         Physician physician = physicianRepository.findByEmail(email);
         if (physician != null) {
-            // Повернути всі сесії цього психолога
             return sessionRepository.findByPhysician(physician);
         }
         return new ArrayList<>();

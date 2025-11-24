@@ -19,8 +19,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 public class SecurityConfig {
 
-   // private final UserDetailsService userDetailsService;
-
     @Autowired
     private CustomUserDetailsService userDetailsService;
 

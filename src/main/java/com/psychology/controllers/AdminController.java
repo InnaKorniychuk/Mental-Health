@@ -28,18 +28,16 @@ public class AdminController {
     public AdminController(SessionRepository sessionRepository) {
         this.sessionRepository = sessionRepository;
     }
+
     @GetMapping("/info")
     public String showInfo() {
         return "admin/info";
     }
+
     @GetMapping("/sessions")
     public String showSessions(Model model, Principal principal) {
-//        String email = principal.getName();
-//        List<Session> sessions = sessionService.getSessionsForPhysician(email);
-//        model.addAttribute("sessions", sessions);
         List<Session> sessions = sessionRepository.findAll();
 
-        // 🟡 Ось ця частина додає українські назви статусів
         Map<SessionStatus, String> statusMap = Map.of(
                 SessionStatus.PENDING, "Очікує підтвердження",
                 SessionStatus.APPROVED, "Підтверджено",
@@ -49,12 +47,6 @@ public class AdminController {
         model.addAttribute("statusMap", statusMap);
         return "admin/admin-session";
     }
-//    @GetMapping
-//    public String viewSessions(Model model) {
-//        List<Session> sessions = sessionRepository.findAll(); // Перевір чи тут підтягується physician
-//        model.addAttribute("sessions", sessions);
-//        return "admin/admin-session";
-//    }
 
     @PostMapping("/approve")
     public String approveSession(@RequestParam Long sessionId) {
@@ -72,28 +64,3 @@ public class AdminController {
         return  "redirect:/admin/sessions";
     }
 }
-
-//@Controller
-//public class AdminController {
-//
-//    @Autowired
-//    private SessionService sessionService;
-//
-//    @GetMapping("/admin/sessions")
-//    public String viewPendingSessions(Model model) {
-//        model.addAttribute("sessions", sessionService.getPendingSessions());
-//        return "admin/admin-session";
-//    }
-//
-//    @PostMapping("/admin/sessions/approve")
-//    public String approveSession(@RequestParam Long sessionId) {
-//        sessionService.approveSession(sessionId);
-//        return "redirect:/admin/sessions";
-//    }
-//
-//    @PostMapping("/admin/sessions/cancel")
-//    public String cancelSession(@RequestParam Long sessionId) {
-//        sessionService.cancelSession(sessionId);
-//        return "redirect:/admin/sessions";
-//    }
-//}

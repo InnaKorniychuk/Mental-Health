@@ -114,7 +114,6 @@
 <body>
 
 <nav>
-  <a href="/clients">Клієнти</a>
   <a href="/sessions">Сесії</a>
   <a href="/profile">Профіль</a>
   <a href="/analytics">Аналітика</a>
@@ -122,29 +121,26 @@
 </nav>
 
 <div class="dashboard">
-  <h1>Ласкаво просимо, Психолог!</h1>
+  <h1>Ласкаво просимо!</h1>
   <p>Це ваша персональна панель управління, де ви можете переглядати інформацію про клієнтів, керувати сесіями, оновлювати свій профіль та аналізувати дані.</p>
+
   <div class="cards">
-    <div class="card">
-      <h3>Клієнти</h3>
-      <p>Переглядайте профілі ваших клієнтів і їхній прогрес.</p>
-      <button>Переглянути</button>
-    </div>
-    <div class="card">
+
+    <a href="/admin/sessions" class="card">
       <h3>Сесії</h3>
       <p>Керуйте своїми сесіями та розкладом.</p>
-      <button>Переглянути</button>
-    </div>
-    <div class="card">
+    </a>
+
+    <a href="/admin/cabinet" class="card">
       <h3>Профіль</h3>
       <p>Оновлюйте інформацію про себе та свої послуги.</p>
-      <button>Переглянути</button>
-    </div>
-    <div class="card">
+    </a>
+
+    <a href="/admin/analytics" class="card">
       <h3>Аналітика</h3>
       <p>Переглядайте статистику та звіти для покращення сервісу.</p>
-      <button>Переглянути</button>
-    </div>
+    </a>
+
   </div>
 </div>
 

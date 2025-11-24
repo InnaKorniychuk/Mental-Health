@@ -31,18 +31,6 @@ public class PhysicianController {
     public String getPaymentPage() {
         return "psychologists/payment";
     }
-    @GetMapping("/page")
-    public String getInfoPage() {
-        return "physician/info";
-    }
-//    @PostMapping("/book-session")
-//    public String bookSession(@RequestParam Long physicianId,
-//                              @RequestParam String date,
-//                              @RequestParam String time,
-//                              Principal principal) {
-//        System.out.println("Бронювання: " + physicianId + ", дата: " + date + ", час: " + time + ", користувач: " + principal.getName());
-//        return "redirect:/physicians?success";
-//    }
 
 }
 

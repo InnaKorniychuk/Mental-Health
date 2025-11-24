@@ -78,6 +78,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
     public LocalTime getAppointmentTime() { return appointmentTime; }
+
     public void setAppointmentTime(LocalTime appointmentTime) { this.appointmentTime = appointmentTime; }
 
 }

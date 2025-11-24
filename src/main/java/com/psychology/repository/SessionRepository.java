@@ -15,6 +15,4 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
     List<Session> findByUserId(Long userId);
     List<Session> findByStatus(SessionStatus status);
     List<Session> findByPhysician(Physician physician);
-//    @Query("SELECT s FROM Session s JOIN FETCH s.user JOIN FETCH s.physician")
-//    List<Session> findAllWithUsersAndPhysicians();
 }

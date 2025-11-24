@@ -30,10 +30,6 @@ public class Physician {
     @OneToMany(mappedBy = "physician", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Session> sessions = new ArrayList<>();
 
-//    @OneToMany
-//    @JoinColumn(name = "session_id", nullable = false)
-//    private List<Session> sessions;
-
     public Physician() {
     }
 
@@ -42,14 +38,6 @@ public class Physician {
         this.specialization = specialization;
         this.role = role;
     }
-
-//    public List<Session> getSessions() {
-//        return sessions;
-//    }
-//
-//    public void setSessions(List<Session> sessions) {
-//        this.sessions = sessions;
-//    }
 
     public Role getRole() {
         return role;

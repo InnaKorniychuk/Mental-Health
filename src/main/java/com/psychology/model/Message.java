@@ -1,6 +1,7 @@
 package com.psychology.model;
 
 public class Message {
+
     private String sender;
     private String content;
 

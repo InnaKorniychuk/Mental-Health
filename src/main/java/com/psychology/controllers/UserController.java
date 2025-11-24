@@ -4,7 +4,6 @@ import com.psychology.model.Physician;
 import com.psychology.model.SessionStatus;
 import com.psychology.repository.PhysicianRepository;
 import com.psychology.repository.SessionRepository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import com.psychology.model.User;
 import com.psychology.repository.UserRepository;
@@ -136,21 +135,18 @@ public class UserController {
 
         String email = principal.getName();
 
-        // Перевіряємо, чи це користувач
         User user = userRepository.findByEmail(email);
         if (user != null && session.getUser().getId().equals(user.getId())) {
             sessionRepository.delete(session);
             return "redirect:/cabinet";
         }
 
-        // Перевіряємо, чи це психолог
         Physician physician = physicianRepository.findByEmail(email);
         if (physician != null && session.getPhysician().getId().equals(physician.getId())) {
             sessionRepository.delete(session);
             return "redirect:/cabinet";
         }
 
-        // Якщо ні користувач, ні психолог не співпадають, забороняємо доступ
         throw new RuntimeException("Ви не маєте права скасовувати цей сеанс");
     }
 

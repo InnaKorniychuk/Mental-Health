@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Наші психологи</title>
+  <title>Our Psychologists</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -125,29 +125,34 @@
 </head>
 <body>
 
-<h1>Наші психологи</h1>
+<h1>Our Psychologists</h1>
 
 <div th:each="p : ${physicians}" class="card">
-  <img th:src="${p.profileImageUrl}" alt="Фото психолога">
+  <img th:src="${p.profileImageUrl}" alt="Psychologist photo">
   <div class="card-info">
-    <h2 th:text="${p.fullName}">Ім’я</h2>
-    <p><strong>Спеціалізація:</strong> <span th:text="${p.specialization}">---</span></p>
-    <p><strong>Освіта:</strong> <span th:text="${p.education}">---</span></p>
-    <p><strong>Мови:</strong> <span th:text="${p.languagesSpoken}">---</span></p>
-    <p><strong>Рейтинг:</strong> <span class="rating" th:text="${p.rating}">0</span></p>
-    <p><strong>Ціна за заняття (60хв):</strong> <span class="rating" th:if="${p.price > 0}" th:text="${p.price}">0</span><span class="rating" th:unless="${p.price > 0}">Безкоштовно</span></p>
+    <h2 th:text="${p.fullName}">Name</h2>
+    <p><strong>Specialization:</strong> <span th:text="${p.specialization}">---</span></p>
+    <p><strong>Education:</strong> <span th:text="${p.education}">---</span></p>
+    <p><strong>Languages:</strong> <span th:text="${p.languagesSpoken}">---</span></p>
+    <p><strong>Rating:</strong> <span class="rating" th:text="${p.rating}">0</span></p>
+    <p><strong>Price per session (60 min):</strong>
+      <span class="rating" th:if="${p.price > 0}" th:text="${p.price}">0</span>
+      <span class="rating" th:unless="${p.price > 0}">Free</span>
+    </p>
     <form th:action="@{/save-time}" method="post" class="booking-form">
       <input type="hidden" name="physicianId" th:value="${p.id}" />
-      <label for="date">Оберіть дату консультації:</label>
+      <label for="date">Choose consultation date:</label>
       <input type="date" id="date" name="date" min="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required>
-      <label for="time">Оберіть час консультації:</label>
+      <label for="time">Choose consultation time:</label>
       <select id="time" name="time" required>
-        <option value="" disabled selected>-- Виберіть час --</option>
-        <option th:each="i : ${#numbers.sequence(0, 19)}" th:value="${T(java.time.LocalTime).of(8,0).plusMinutes(i*30).toString()}" th:text="${T(java.time.LocalTime).of(8,0).plusMinutes(i*30).toString()}"></option>
+        <option value="" disabled selected>-- Select time --</option>
+        <option th:each="i : ${#numbers.sequence(0, 19)}"
+                th:value="${T(java.time.LocalTime).of(8,0).plusMinutes(i*30).toString()}"
+                th:text="${T(java.time.LocalTime).of(8,0).plusMinutes(i*30).toString()}"></option>
       </select>
-      <button type="submit">Забронювати та оплатити</button>
+      <button type="submit">Book & Pay</button>
     </form>
-    <a th:href="@{'/chat/' + ${p.id}}"><button class="btn-chat">Написати</button></a>
+    <a th:href="@{'/chat/' + ${p.id}}"><button class="btn-chat">Send Message</button></a>
   </div>
 </div>
 

@@ -20,8 +20,10 @@ public class Session {
     @JoinColumn(name = "physician_id", nullable = false)
     private Physician physician;
 
+    @Column(nullable = false)
     private LocalDate date;
 
+    @Column(nullable = false)
     private LocalTime time;
 
     @Enumerated(EnumType.STRING)

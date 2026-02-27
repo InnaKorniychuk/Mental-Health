@@ -28,7 +28,7 @@ public class SessionServiceImpl implements SessionService {
     }
     @Override
     public void approveSession(Long sessionId) {
-        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Сесія не знайдена"));
+        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Session is not found"));
         session.setStatus(SessionStatus.APPROVED);
         sessionRepository.save(session);
     }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Вхід до системи</title>
+  <title>System Login</title>
   <style>
     * {
       box-sizing: border-box;
@@ -103,7 +103,7 @@
 <body>
 
 <div class="login-container">
-  <h1>Вхід</h1>
+  <h1>Login</h1>
 
   <form th:action="@{/login}" method="post">
     <div>
@@ -111,26 +111,26 @@
       <input type="email" id="email" name="email" placeholder="you@example.com" required>
     </div>
     <div>
-      <label for="password">Пароль</label>
+      <label for="password">Password</label>
       <input type="password" id="password" name="password" placeholder="********" required>
     </div>
     <div>
-      <button type="submit" class="btn-login">Увійти</button>
+      <button type="submit" class="btn-login">Login</button>
     </div>
   </form>
 
   <form th:action="@{/pre-register/start}" method="get">
     <div>
-      <button type="submit" class="btn-register">Зареєструватися</button>
+      <button type="submit" class="btn-register">Register</button>
     </div>
   </form>
   <form th:action="@{/pre-register/help}" method="get">
     <div>
-      <button type="submit" class="btn-register">Негайна допомога</button>
+      <button type="submit" class="btn-register">Immediate Help</button>
     </div>
   </form>
 
-  <p class="note">Ще не маєте облікового запису? Реєстрація — безкоштовна!</p>
+  <p class="note">Don't have an account yet? Registration is free!</p>
 </div>
 
 </body>

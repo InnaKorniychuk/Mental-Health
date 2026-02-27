@@ -78,6 +78,11 @@
             background-color: #388e3c;
         }
 
+        .btn-danger {
+            background-color: #e53935;
+            border-color: #e53935;
+        }
+
         .btn-danger:hover {
             background-color: #c62828;
         }
@@ -122,7 +127,7 @@
         <button class="btn btn-outline-primary mt-3" onclick="toggleEditInfo()">Змінити особисту інформацію</button>
     </div>
 
-    <div id="edit-info-form" style="display: none;" class="mb-4">
+    <div id="edit-info-form" class="mb-4 form-section">
         <form th:action="@{/change-info}" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Нове ім’я</label>
@@ -139,41 +144,30 @@
         </form>
     </div>
 
-    <script>
-        function toggleEditInfo() {
-            const form = document.getElementById('edit-info-form');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
-
-
-
     <div th:each="s : ${sessions}" class="session-card">
-        <h5 th:text="'Сесія з ' + (s.physician != null ? ${s.physician.fullName} : 'невідомим психологом')">Психолог</h5>
+        <h5 th:text="'Сесія з ' + (s.physician != null ? s.physician.fullName : 'невідомим психологом')">Психолог</h5>
         <p><strong>Дата:</strong> <span th:text="${s.date}">2025-04-25</span></p>
         <p><strong>Час:</strong> <span th:text="${s.time}">14:00</span></p>
-        <p><strong>Статус заявки:</strong>
-        <td th:text="${statusMap[s.status]}"></td>
-        </p>
+        <p><strong>Статус заявки:</strong> <span th:text="${statusMap[s.status]}">Очікує</span></p>
 
         <div class="d-flex flex-wrap gap-2 mt-3">
             <form th:action="@{'/cancel-session/' + ${s.id}}" method="post">
                 <button type="submit" class="btn btn-danger">Скасувати</button>
             </form>
 
-            <a th:href="@{'/chat/' + ${s.physician != null ? s.physician.id : 0}}" class="btn btn-primary">
+            <a th:href="@{'/chat/' + (s.physician != null ? s.physician.id : 0)}" class="btn btn-primary">
                 Перейти в чат
             </a>
 
             <button type="button" class="btn btn-success" onclick="toggleForm(this)">
                 Змінити консультацію
             </button>
+
             <a th:if="${s.status.name() == 'APPROVED'}"
                th:href="@{'https://meet.google.com/wka-oajg-meq'}"
                class="btn btn-primary">
                 Перейти на зустріч
             </a>
-
         </div>
 
         <div class="form-section">
@@ -204,6 +198,11 @@
 </div>
 
 <script>
+    function toggleEditInfo() {
+        const form = document.getElementById('edit-info-form');
+        form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
     function toggleForm(button) {
         const formSection = button.closest('.session-card').querySelector('.form-section');
         formSection.style.display = formSection.style.display === 'block' ? 'none' : 'block';

@@ -11,24 +11,32 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String  password;
+
+    @Column(nullable = false)
     private Date dateOfBirth;
+
+    @Column(nullable = false)
     private LocalTime appointmentTime;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
     public User() {
     }
 
-    public User(String username, String email, Role role) {
+    public User(String username, String email) {
         this.username = username;
         this.email = email;
-        this.role = role;
+        this.role = Role.USER;
     }
 
     public Role getRole() {

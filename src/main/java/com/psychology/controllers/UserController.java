@@ -96,10 +96,10 @@ public class UserController {
         System.out.println("Principal: " + principal.getName());
 
         Session session = sessionRepository.findById(sessionId)
-                .orElseThrow(() -> new RuntimeException("Сесію не знайдено"));
+                .orElseThrow(() -> new RuntimeException("Session is not found"));
 
         if (!session.getUser().getId().equals(user.getId())) {
-            throw new RuntimeException("Сесію не знайдено або не ваша");
+            throw new RuntimeException("You're not allowed to change the session");
         }
 
         session.setTime(selectedTime);
@@ -116,9 +116,9 @@ public class UserController {
         List<Session> sessions = sessionService.getUpcomingSessionsForUser(user.getId());
 
         Map<SessionStatus, String> statusMap = Map.of(
-                SessionStatus.PENDING, "Очікує підтвердження",
-                SessionStatus.APPROVED, "Підтверджено",
-                SessionStatus.CANCELLED, "Скасовано"
+                SessionStatus.PENDING, "Pending",
+                SessionStatus.APPROVED, "Approved",
+                SessionStatus.CANCELLED, "Cancelled"
         );
 
         model.addAttribute("user", user);
@@ -131,7 +131,7 @@ public class UserController {
     @PostMapping("/cancel-session/{id}")
     public String cancelSession(@PathVariable("id") Long sessionId, Principal principal) {
         Session session = sessionRepository.findById(sessionId)
-                .orElseThrow(() -> new RuntimeException("Сеанс не знайдено"));
+                .orElseThrow(() -> new RuntimeException("Session is not found"));
 
         String email = principal.getName();
 
@@ -147,7 +147,7 @@ public class UserController {
             return "redirect:/cabinet";
         }
 
-        throw new RuntimeException("Ви не маєте права скасовувати цей сеанс");
+        throw new RuntimeException("You're not allowed to cancel the session");
     }
 
 }

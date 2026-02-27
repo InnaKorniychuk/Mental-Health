@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Чат з психологом</title>
+  <title>Chat with Psychologist</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -95,12 +95,12 @@
 <body>
 <div class="container">
   <div class="chat-header">
-    Чат з <span th:text="${physician.fullName}">Психологом</span>
+    Chat with <span th:text="${physician.fullName}">Psychologist</span>
   </div>
 
   <div class="chat-box">
     <div th:each="msg : ${chatMessages}">
-      <div th:class="'msg ' + (${msg.sender} == 'Ви' ? 'msg-user' : 'msg-psych')">
+      <div th:class="'msg ' + (${msg.sender} == 'You' ? 'msg-user' : 'msg-psych')">
         <strong th:text="${msg.sender + ':'}"></strong> <br>
         <span th:text="${msg.content}"></span>
       </div>
@@ -108,8 +108,8 @@
   </div>
 
   <form th:action="@{'/chat/' + ${physician.id}}" method="post" class="chat-input">
-    <input type="text" name="message" placeholder="Напишіть повідомлення..." required />
-    <button type="submit">Надіслати</button>
+    <input type="text" name="message" placeholder="Type your message..." required />
+    <button type="submit">Send</button>
   </form>
 </div>
 </body>

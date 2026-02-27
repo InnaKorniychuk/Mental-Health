@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вибір способу оплати</title>
+  <title>Select Payment Method</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -100,11 +100,11 @@
   </style>
 </head>
 <body>
-<h1>Виберіть спосіб оплати</h1>
+<h1>Select Your Payment Method</h1>
 <form id="payment-form" class="payment-container">
   <label class="card">
-    <img src="https://img.icons8.com/fluency/96/credit-card.png" alt="Кредитна карта">
-    <h2>Кредитна карта</h2>
+    <img src="https://img.icons8.com/fluency/96/credit-card.png" alt="Credit Card">
+    <h2>Credit Card</h2>
     <input type="radio" name="paymentMethod" value="credit-card" required>
   </label>
   <label class="card">
@@ -113,18 +113,18 @@
     <input type="radio" name="paymentMethod" value="paypal">
   </label>
   <label class="card">
-    <img src="https://img.icons8.com/fluency/96/bank.png" alt="Банківський переказ">
-    <h2>Банківський переказ</h2>
+    <img src="https://img.icons8.com/fluency/96/bank.png" alt="Bank Transfer">
+    <h2>Bank Transfer</h2>
     <input type="radio" name="paymentMethod" value="bank-transfer">
   </label>
 </form>
-<button type="button" class="btn" onclick="showModal()">Оплатити</button>
+<button type="button" class="btn" onclick="showModal()">Pay</button>
 
 <div id="modal" class="modal">
   <div class="modal-content">
-    <h3>Оплата успішна!</h3>
-    <p>Вас буде перенаправлено до особистого кабінету.</p>
-    <button class="close-btn" onclick="redirectToCabinet()">Перейти</button>
+    <h3>Payment Successful!</h3>
+    <p>You will be redirected to your dashboard shortly.</p>
+    <button class="close-btn" onclick="redirectToCabinet()">Go to Dashboard</button>
   </div>
 </div>
 

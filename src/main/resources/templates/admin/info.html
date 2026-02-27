@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MindBloom — Кабінет Психолога</title>
+  <title>MindBloom — Physician Dashboard</title>
   <style>
     * {
       box-sizing: border-box;
@@ -44,7 +44,7 @@
 
     .dashboard {
       padding: 60px 20px;
-      text-align: center;
+      text-align: centre;
     }
 
     .dashboard h1 {
@@ -114,30 +114,33 @@
 <body>
 
 <nav>
-  <a href="/profile">Профіль</a>
-  <a href="/analytics">Аналітика</a>
-  <a href="/logout">Вийти</a>
+  <a href="/profile">Profile</a>
+  <a href="/analytics">Insights</a>
+  <a href="/logout">Sign out</a>
 </nav>
 
 <div class="dashboard">
-  <h1>Ласкаво просимо!</h1>
-  <p>Це ваша персональна панель управління, де ви можете переглядати інформацію про клієнтів, керувати сесіями, оновлювати свій профіль та аналізувати дані.</p>
+  <h1>Welcome</h1>
+  <p>
+    This is your personal dashboard, where you can review client details, manage your sessions,
+    update your profile, and analyse performance data.
+  </p>
 
   <div class="cards">
 
     <a href="/admin/sessions" class="card">
-      <h3>Сесії</h3>
-      <p>Керуйте своїми сесіями та розкладом.</p>
+      <h3>Sessions</h3>
+      <p>View and manage your sessions and availability.</p>
     </a>
 
     <a href="/admin/cabinet" class="card">
-      <h3>Профіль</h3>
-      <p>Оновлюйте інформацію про себе та свої послуги.</p>
+      <h3>Profile</h3>
+      <p>Edit your personal details and professional information.</p>
     </a>
 
     <a href="/admin/analytics" class="card">
-      <h3>Аналітика</h3>
-      <p>Переглядайте статистику та звіти для покращення сервісу.</p>
+      <h3>Insights</h3>
+      <p>Access reports and statistics to enhance your service.</p>
     </a>
 
   </div>

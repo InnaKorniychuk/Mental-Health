@@ -12,19 +12,35 @@ public class Physician {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String fullName;
+
+    @Column(nullable = false)
     private String specialization;
+
+    @Column(nullable = false)
     private String education;
+
+    @Column(nullable = false)
     private String languagesSpoken;
+
+    @Column(nullable = false)
     private Double rating;
+
+    @Column(nullable = false)
     private int price;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String  password;
 
+    @Column(nullable = false)
     private String profileImageUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
     @OneToMany(mappedBy = "physician", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -33,10 +49,10 @@ public class Physician {
     public Physician() {
     }
 
-    public Physician(String fullName, String specialization, Role role) {
+    public Physician(String fullName, String specialization) {
         this.fullName = fullName;
         this.specialization = specialization;
-        this.role = role;
+        this.role = Role.PHYSICIAN;
     }
 
     public Role getRole() {

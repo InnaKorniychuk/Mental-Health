@@ -1,11 +1,9 @@
 package com.psychology.repository;
 
-;
 import com.psychology.model.Physician;
 import com.psychology.model.Session;
 import com.psychology.model.SessionStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

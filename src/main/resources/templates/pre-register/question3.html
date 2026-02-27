@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Психологічний тест — Питання 2</title>
+  <title>Psychological Test — Question 3</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -102,11 +102,11 @@
   <div class="progress-bar">
     <div class="progress-fill" style="width: 100%;"></div>
   </div>
-  <h2>3. Чи займалися ви раніше із психологом?</h2>
+  <h2>3. Have you ever worked with a psychologist before?</h2>
   <form th:action="@{/pre-register/summary}" method="post">
-    <label><input type="radio" name="trust" value="Так" required> Так</label>
-    <label><input type="radio" name="trust" value="Ні"> Ні</label>
-    <button type="submit">Далі</button>
+    <label><input type="radio" name="trust" value="Yes" required> Yes</label>
+    <label><input type="radio" name="trust" value="No"> No</label>
+    <button type="submit">Next</button>
   </form>
 </div>
 

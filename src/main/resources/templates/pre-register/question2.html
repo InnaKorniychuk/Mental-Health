@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Психологічний тест — Питання 2</title>
+  <title>Psychological Test — Question 2</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -103,13 +103,13 @@
     <div class="progress-fill" style="width: 66%;"></div>
   </div>
 
-  <h2>2. Чи відчуваєте ви напруження або занепокоєння без явної причини?</h2>
+  <h2>2. Do you feel tension or worry without any obvious reason?</h2>
   <form th:action="@{/pre-register/question3}" method="post">
-    <label><input type="radio" name="anxiety" value="Часто" required> Часто</label>
-    <label><input type="radio" name="anxiety" value="Іноді"> Іноді</label>
-    <label><input type="radio" name="anxiety" value="Рідко"> Рідко</label>
-    <label><input type="radio" name="anxiety" value="Ніколи"> Ніколи</label>
-    <button type="submit">Далі</button>
+    <label><input type="radio" name="anxiety" value="Often" required> Often</label>
+    <label><input type="radio" name="anxiety" value="Sometimes"> Sometimes</label>
+    <label><input type="radio" name="anxiety" value="Rarely"> Rarely</label>
+    <label><input type="radio" name="anxiety" value="Never"> Never</label>
+    <button type="submit">Next</button>
   </form>
 </div>
 

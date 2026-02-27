@@ -38,11 +38,11 @@ public class ChatController {
                               @RequestParam String message,
                               @ModelAttribute("chatMessages") List<Message> chatMessages) {
 
-        chatMessages.add(new Message("Ви", message));
+        chatMessages.add(new Message("You", message));
 
 
         String response = getAutoResponse(message);
-        chatMessages.add(new Message("Психолог", response));
+        chatMessages.add(new Message("Physician", response));
 
         return "redirect:/chat/" + id;
     }
@@ -50,18 +50,18 @@ public class ChatController {
     private String getAutoResponse(String message) {
         message = message.toLowerCase();
 
-        if (message.contains("стрес")) {
-            return "Здається, ви переживаєте складний період. Хочете поговорити про це детальніше?";
-        } else if (message.contains("тривога") || message.contains("паніка")) {
-            return "Тривога — це природна реакція. Чи знаєте ви, що її можна контролювати за допомогою дихальних практик?";
-        } else if (message.contains("депресія")) {
-            return "Важливо памʼятати, що ви не самі. Я тут, щоб вас підтримати.";
-        } else if (message.contains("втома") || message.contains("вигорання")) {
-            return "Ви, ймовірно, перевантажені. Коли ви востаннє відпочивали?";
-        } else if (message.contains("самотність")) {
-            return "Самотність може бути важкою. Хочете розповісти більше про свої почуття?";
+        if (message.contains("stress")) {
+            return "It sounds like you’re going through a difficult time. Would you like to talk about it in more detail?";
+        } else if (message.contains("anxiety") || message.contains("panic")) {
+            return "Anxiety is a natural response. Did you know it can be managed with breathing techniques?";
+        } else if (message.contains("depression")) {
+            return "It’s important to remember that you’re not alone. I’m here to support you.";
+        } else if (message.contains("fatigue") || message.contains("burnout")) {
+            return "You may be feeling overwhelmed. When was the last time you had a proper rest?";
+        } else if (message.contains("loneliness")) {
+            return "Loneliness can be really hard. Would you like to share more about how you’re feeling?";
         } else {
-            return "Я вас чую. Розкажіть трохи більше, щоб отримати якісну консультацію.";
+            return "I hear you. Please tell me a bit more so I can better support you.";
         }
     }
 }

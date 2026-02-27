@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Тест на стрес</title>
+  <title>Stress Test</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #bbdefb, #e1f5fe); /* Голубенький градієнт */
+      background: linear-gradient(to right, #bbdefb, #e1f5fe);
       margin: 0;
       padding: 0;
     }
@@ -28,21 +28,21 @@
 
     h1 {
       text-align: center;
-      color: #1e88e5; /* Синій заголовок */
+      color: #1e88e5;
       margin-bottom: 30px;
     }
 
     .question {
       margin-bottom: 25px;
       padding: 20px;
-      border: 1px solid #90caf9; /* Світло-синя обводка */
+      border: 1px solid #90caf9;
       border-radius: 15px;
-      background-color: #e3f2fd; /* Світло-голубенький фон */
+      background-color: #e3f2fd;
       transition: box-shadow 0.3s;
     }
 
     .question:hover {
-      box-shadow: 0 4px 15px rgba(30, 136, 229, 0.15); /* Синя тінь при наведенні */
+      box-shadow: 0 4px 15px rgba(30, 136, 229, 0.15);
     }
 
     label {
@@ -55,7 +55,7 @@
       display: block;
       margin: 30px auto;
       padding: 12px 25px;
-      background-color: #1976d2; /* Синя кнопка */
+      background-color: #1976d2;
       color: white;
       border: none;
       border-radius: 10px;
@@ -65,15 +65,15 @@
     }
 
     button:hover {
-      background-color: #1565c0; /* Темно-синя кнопка при наведенні */
+      background-color: #1565c0;
     }
 
     #result {
       margin-top: 30px;
       padding: 20px;
       border-radius: 15px;
-      background-color: #e0f7fa; /* Світло-голубенький фон результату */
-      border: 1px solid #81d4fa; /* Голубенька обводка результату */
+      background-color: #e0f7fa;
+      border: 1px solid #81d4fa;
       font-weight: bold;
       font-size: 18px;
       text-align: center;
@@ -84,98 +84,98 @@
 </head>
 <body>
 <div class="container">
-  <h1>Тест на стрес</h1>
+  <h1>Stress Test</h1>
   <div class="question">
-    <p>Як часто ви відчували, що несподівана подія вас засмутила?</p>
-    <label><input type="radio" name="s1" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s1" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s1" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s1" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s1" value="4"> Дуже часто</label>
+    <p>How often have you been upset because of something that happened unexpectedly?</p>
+    <label><input type="radio" name="s1" value="0"> Never</label><br>
+    <label><input type="radio" name="s1" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s1" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s1" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s1" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви відчували, що не могли контролювати важливі речі у своєму житті?</p>
-    <label><input type="radio" name="s2" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s2" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s2" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s2" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s2" value="4"> Дуже часто</label>
+    <p>How often have you felt that you were unable to control the important things in your life?</p>
+    <label><input type="radio" name="s2" value="0"> Never</label><br>
+    <label><input type="radio" name="s2" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s2" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s2" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s2" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви нервували та "виходили з себе"?</p>
-    <label><input type="radio" name="s3" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s3" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s3" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s3" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s3" value="4"> Дуже часто</label>
+    <p>How often have you felt nervous and "stressed"?</p>
+    <label><input type="radio" name="s3" value="0"> Never</label><br>
+    <label><input type="radio" name="s3" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s3" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s3" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s3" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви впевнено почувалися щодо своєї здатності справлятися з особистими проблемами?</p>
-    <label><input type="radio" name="s4" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s4" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s4" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s4" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s4" value="4"> Дуже часто</label>
+    <p>How often have you felt confident about your ability to handle your personal problems?</p>
+    <label><input type="radio" name="s4" value="0"> Never</label><br>
+    <label><input type="radio" name="s4" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s4" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s4" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s4" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви відчували, що все йде не так, як вам хочеться?</p>
-    <label><input type="radio" name="s5" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s5" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s5" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s5" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s5" value="4"> Дуже часто</label>
+    <p>How often have you felt that things were going your way?</p>
+    <label><input type="radio" name="s5" value="0"> Never</label><br>
+    <label><input type="radio" name="s5" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s5" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s5" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s5" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви відчували, що не можете впоратися з усім, що вам потрібно зробити?</p>
-    <label><input type="radio" name="s6" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s6" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s6" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s6" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s6" value="4"> Дуже часто</label>
+    <p>How often have you found that you could not cope with all the things that you had to do?</p>
+    <label><input type="radio" name="s6" value="0"> Never</label><br>
+    <label><input type="radio" name="s6" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s6" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s6" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s6" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви могли контролювати роздратування у своєму житті?</p>
-    <label><input type="radio" name="s7" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s7" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s7" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s7" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s7" value="4"> Дуже часто</label>
+    <p>How often have you been able to control irritations in your life?</p>
+    <label><input type="radio" name="s7" value="0"> Never</label><br>
+    <label><input type="radio" name="s7" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s7" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s7" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s7" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви відчували, що труднощі накопичуються настільки, що ви не можете з ними впоратися?</p>
-    <label><input type="radio" name="s8" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s8" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s8" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s8" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s8" value="4"> Дуже часто</label>
+    <p>How often have you felt that you were on top of things?</p>
+    <label><input type="radio" name="s8" value="0"> Never</label><br>
+    <label><input type="radio" name="s8" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s8" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s8" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s8" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви відчували себе розлюченим через речі, які були поза вашим контролем?</p>
-    <label><input type="radio" name="s9" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s9" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s9" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s9" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s9" value="4"> Дуже часто</label>
+    <p>How often have you been angered because of things that were outside of your control?</p>
+    <label><input type="radio" name="s9" value="0"> Never</label><br>
+    <label><input type="radio" name="s9" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s9" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s9" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s9" value="4"> Very often</label>
   </div>
 
   <div class="question">
-    <p>Як часто ви відчували, що труднощі настільки великі, що ви не можете їх подолати?</p>
-    <label><input type="radio" name="s10" value="0"> Ніколи</label><br>
-    <label><input type="radio" name="s10" value="1"> Майже ніколи</label><br>
-    <label><input type="radio" name="s10" value="2"> Іноді</label><br>
-    <label><input type="radio" name="s10" value="3"> Досить часто</label><br>
-    <label><input type="radio" name="s10" value="4"> Дуже часто</label>
+    <p>How often have you felt difficulties were piling up so high that you could not overcome them?</p>
+    <label><input type="radio" name="s10" value="0"> Never</label><br>
+    <label><input type="radio" name="s10" value="1"> Almost never</label><br>
+    <label><input type="radio" name="s10" value="2"> Sometimes</label><br>
+    <label><input type="radio" name="s10" value="3"> Fairly often</label><br>
+    <label><input type="radio" name="s10" value="4"> Very often</label>
   </div>
 
-  <button onclick="calculateStressResult()">Порахувати результат</button>
+  <button onclick="calculateStressResult()">Calculate Result</button>
 
   <div id="result"></div>
 </div>
@@ -188,7 +188,7 @@
       if (selectedOption) {
         score += parseInt(selectedOption.value);
       } else {
-        alert("Будь ласка, дайте відповідь на всі питання.");
+        alert("Please answer all questions.");
         return;
       }
     }
@@ -198,14 +198,14 @@
 
     let interpretation = "";
     if (score >= 0 && score <= 13) {
-      interpretation = "Низький рівень стресу";
+      interpretation = "Low stress level";
     } else if (score >= 14 && score <= 26) {
-      interpretation = "Помірний рівень стресу";
+      interpretation = "Moderate stress level";
     } else {
-      interpretation = "Високий рівень стресу";
+      interpretation = "High stress level";
     }
 
-    resultDiv.textContent = `Ваш бал стресу: ${score}. Інтерпретація: ${interpretation}.`;
+    resultDiv.textContent = `Your stress score: ${score}. Interpretation: ${interpretation}.`;
   }
 </script>
 </body>

@@ -16,7 +16,6 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
-// AdminSessionController.java
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -39,9 +38,9 @@ public class AdminController {
         List<Session> sessions = sessionRepository.findAll();
 
         Map<SessionStatus, String> statusMap = Map.of(
-                SessionStatus.PENDING, "Очікує підтвердження",
-                SessionStatus.APPROVED, "Підтверджено",
-                SessionStatus.CANCELLED, "Скасовано"
+                SessionStatus.PENDING, "Pending",
+                SessionStatus.APPROVED, "Approved",
+                SessionStatus.CANCELLED, "Cancelled"
         );
         model.addAttribute("sessions", sessions);
         model.addAttribute("statusMap", statusMap);
@@ -50,7 +49,7 @@ public class AdminController {
 
     @PostMapping("/approve")
     public String approveSession(@RequestParam Long sessionId) {
-        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Сесія не знайдена"));
+        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Session is not found"));
         session.setStatus(SessionStatus.APPROVED);
         sessionRepository.save(session);
         return "redirect:/admin/sessions";
@@ -58,7 +57,7 @@ public class AdminController {
 
     @PostMapping("/cancel")
     public String cancelSession(@RequestParam Long sessionId) {
-        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Сесія не знайдена"));
+        Session session = sessionRepository.findById(sessionId).orElseThrow(() -> new RuntimeException("Session is not found"));
         session.setStatus(SessionStatus.CANCELLED);
         sessionRepository.save(session);
         return  "redirect:/admin/sessions";

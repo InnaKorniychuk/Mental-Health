@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Реєстрація</title>
+  <title>Registration</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -55,19 +55,19 @@
 <body>
 
 <div class="container">
-  <h1>Реєстрація</h1>
+  <h1>Registration</h1>
   <form th:action="@{/register}" method="post">
-    <input type="text" name="username" placeholder="Ім’я користувача" required>
+    <input type="text" name="username" placeholder="Username" required>
     <input type="email" name="email" placeholder="Email" required>
-    <input type="date" name="dateOfBirth" placeholder="Дата народження" required>
-    <input type="password" name="password" placeholder="Пароль" required>
-    <input type="password" name="confirmPassword" placeholder="Підтвердіть пароль" required>
+    <input type="date" name="dateOfBirth" placeholder="Date of Birth" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
 
-    <button type="submit">Зареєструватися</button>
+    <button type="submit">Register</button>
   </form>
 
   <div class="link">
-    Вже маєш акаунт? <a th:href="@{/login}">Увійти</a>
+    Already have an account? <a th:href="@{/login}">Log in</a>
   </div>
 </div>
 
